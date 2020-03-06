@@ -2,12 +2,13 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const errorHandler = require('errorhandler')
-const axios = require('axios')
+const cors = require('cors')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
 const app = express()
 
+app.use(cors())
 app.use(require('morgan')('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -18,24 +19,9 @@ if(!isProduction) {
   require('dotenv').load
 }
 
-// example url: https://api.themoviedb.org/3/movie/550?api_key=<<api_key>>
-const TMDB_API_URL = 'https://api.themoviedb.org/3/movie/'
-const TMDB_API_KEY = process.env.TMDB_API_KEY
-const popularMoviesURL = `${TMDB_API_URL}popular?api_key=${TMDB_API_KEY}&language=en-US&page=1`
-
-app.get('/', (req, res) => {
-    const { body } = req
-
-    if (body.search_term) {
-        const moviesByTitleURL = `${TMDB_API_URL}search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=${body.search_term}&page=1&include_adult=false`
-        axios.get(moviesByTitleURL)
-            .then(response => res.send(response.data))
-            .catch(error => console.log('Error', error))
-    }
-    axios.get(popularMoviesURL)
-        .then(response => res.send(response.data))
-        .catch(error => console.log('Error', error))
-})
+// Add models
+// Add routes
+app.use(require('./routes'));
 
 app.use((req, res, next) => {
   const err = new Error('Not Found')
