@@ -40,10 +40,10 @@ class MovieDetail extends React.Component {
     render() {
         const movie = this.state.displayMovie
         const movieBudget = movie.budget > 0
-            ? movie.budget
+            ? <NumberFormat value={movie.budget} displayType={'text'} thousandSeparator={true} prefix={'$'} />
             : "Budget information not available"
         const movieRevenue = movie.revenue > 0
-            ? movie.revenue
+            ? <NumberFormat value={movie.revenue} displayType={'text'} thousandSeparator={true} prefix={'$'} />
             : "Revenue information not available"
         return (
             <Fragment>
@@ -75,8 +75,8 @@ class MovieDetail extends React.Component {
                     </div>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">Runtime: {movie.runtime} min</li>
-                        <li className="list-group-item">Budget: <NumberFormat value={movieBudget} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
-                        <li className="list-group-item">Revenue: <NumberFormat value={movieRevenue} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
+                        <li className="list-group-item">Budget: {movieBudget}</li>
+                        <li className="list-group-item">Revenue: {movieRevenue}</li>
                         <li className="list-group-item"><a href={`https://www.imdb.com/title/${movie.imdb_id}/`}>IMDB</a></li>
                     </ul>
                 </div>
