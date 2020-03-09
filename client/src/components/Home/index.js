@@ -7,7 +7,7 @@ class Home extends React.Component {
         return (
             <div className="container">
                 <div className="row pt-5">
-                    <div className="col-12 col-lg-6 offset-lg-3">
+                    <div className="col-12">
                         <h1 className="text-center">MovieSearch</h1>
                     </div>
                     <Form />
