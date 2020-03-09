@@ -19,9 +19,7 @@ if(!isProduction) {
   require('dotenv').load
 }
 
-// Add models
-// Add routes
-app.use(require('./routes'));
+app.use(require('./routes'))
 
 app.use((req, res, next) => {
   const err = new Error('Not Found')
