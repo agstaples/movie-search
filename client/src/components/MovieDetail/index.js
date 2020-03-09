@@ -21,24 +21,39 @@ class MovieDetail extends React.Component {
 
   getSimilarMoviesDropdown() {
     const movies = this.state.displayMovie.similar;
-    if (movies && movies.results) {
+    if (movies && movies.results && movies.results.length > 0) {
       return (
-        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          {Object.entries(movies.results).map(movie => {
-            return (
-              <a
-                key={movie[1].id}
-                className="dropdown-item"
-                href={`/${movie[1].id}`}
-              >
-                {movie[1].title}{" "}
-                {movie[1].release_date &&
-                  `(${movie[1].release_date.split("-")[0]})`}
-              </a>
-            );
-          })}
+        <div className="dropdown">
+            <button
+              className="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style={{ margin: "10px 0" }}
+            >
+              View Similar Movies
+            </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {Object.entries(movies.results).map(movie => {
+              return (
+                <a
+                  key={movie[1].id}
+                  className="dropdown-item"
+                  href={`/${movie[1].id}`}
+                >
+                  {movie[1].title}{" "}
+                  {movie[1].release_date &&
+                    `(${movie[1].release_date.split("-")[0]})`}
+                </a>
+              );
+            })}
+          </div>
         </div>
       );
+    } else {
+      return null
     }
   }
 
@@ -89,20 +104,7 @@ class MovieDetail extends React.Component {
           </div>
         </div>
         <div className="col-12">
-          <div className="dropdown">
-            <button
-              className="btn btn-primary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              style={{ margin: "10px 0" }}
-            >
-              View Similar Movies
-            </button>
             {this.getSimilarMoviesDropdown()}
-          </div>
           <ul className="list-group list-group-flush">
             <li className="list-group-item">Runtime: {movie.runtime} min</li>
             <li className="list-group-item">Budget: {movieBudget}</li>
