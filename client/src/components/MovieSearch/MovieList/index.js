@@ -22,16 +22,23 @@ class MovieList extends React.Component {
     componentDidUpdate(prevProps) {
         if (prevProps.searchTitle !== this.props.searchTitle) {
             const searchTitle = this.props.searchTitle
+            const cachedHits = JSON.parse(localStorage.getItem(searchTitle))
 
-            axios.get(`http://localhost:3001/api/tmdb`, {
-                params: {
-                    search_title: searchTitle
-                }
-            })
-                .then(res => {
-                    const displayMovies = res.data.results
-                    this.setState({ displayMovies })
+            if (cachedHits) {
+                this.setState({ displayMovies: cachedHits })
+            } else {
+                axios.get(`http://localhost:3001/api/tmdb`, {
+                    params: {
+                        search_title: searchTitle
+                    }
                 })
+                    .then(res => {
+                        const displayMovies = res.data.results
+                        const stringifiedMovies = JSON.stringify(displayMovies)
+                        localStorage.setItem(searchTitle, stringifiedMovies)
+                        this.setState({ displayMovies })
+                    })
+            }
         }
     }
 

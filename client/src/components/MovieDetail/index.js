@@ -73,11 +73,11 @@ class MovieDetail extends React.Component {
                         </button>
                         {this.getSimilarMoviesDropdown()}
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Runtime: {movie.runtime} min</li>
-                        <li class="list-group-item">Budget: <NumberFormat value={movieBudget} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
-                        <li class="list-group-item">Revenue: <NumberFormat value={movieRevenue} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
-                        <li class="list-group-item"><a href={`https://www.imdb.com/title/${movie.imdb_id}/`}>IMDB</a></li>
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Runtime: {movie.runtime} min</li>
+                        <li className="list-group-item">Budget: <NumberFormat value={movieBudget} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
+                        <li className="list-group-item">Revenue: <NumberFormat value={movieRevenue} displayType={'text'} thousandSeparator={true} prefix={'$'} /></li>
+                        <li className="list-group-item"><a href={`https://www.imdb.com/title/${movie.imdb_id}/`}>IMDB</a></li>
                     </ul>
                 </div>
             </Fragment>

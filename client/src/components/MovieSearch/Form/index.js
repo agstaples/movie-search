@@ -11,7 +11,7 @@ class Form extends Component {
             searchTitle: '',
         }
 
-        this.delayedCallback = _.debounce(this.setSearchTitle, 500);
+        this.delayedCallback = _.debounce(this.setSearchTitle, 500)
     }
 
     setSearchTitle(event) {
