@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const dotenv = require('dotenv');
+dotenv.config();
 const axios = require("axios");
 
 const TMDB_API_URL = "https://api.themoviedb.org/3/";
