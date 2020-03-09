@@ -1,11 +1,11 @@
-import React from 'react'
-import createHistory from 'history/createBrowserHistory'
-import ReactDOM from 'react-dom'
-import { Route, Switch, Router } from 'react-router-dom'
+import React from "react";
+import createHistory from "history/createBrowserHistory";
+import ReactDOM from "react-dom";
+import { Route, Switch, Router } from "react-router-dom";
 
-import { App } from './components'
+import { App } from "./components";
 
-import '../resources/scss/style.scss'
+import "../resources/scss/style.scss";
 
 ReactDOM.render(
   <Router history={createHistory()}>
@@ -13,5 +13,5 @@ ReactDOM.render(
       <Route path="/" component={App} />
     </Switch>
   </Router>,
-  document.getElementById('root'),
-)
+  document.getElementById("root")
+);

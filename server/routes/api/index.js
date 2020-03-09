@@ -1,5 +1,5 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
-router.use('/tmdb', require('./tmdb'))
+router.use("/tmdb", require("./tmdb"));
 
-module.exports = router
+module.exports = router;
