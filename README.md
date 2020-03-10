@@ -15,12 +15,26 @@ This is a full stack [React](https://reactjs.org/) application with a [Node.js](
 
 ## Quick Start
 
+You will need a TMDB API key to run the app locally, follow the instructions on the [TMDB](https://developers.themoviedb.org/3/getting-started/introduction) site to retrieve an api key.
+
 ```bash
 # Clone the repository
 git clone https://github.com/agstaples/movie-search
 
 # Go inside the directory
 cd movie-search
+
+# Create and populate .env file with TMDB API key
+cat > .env
+# Then hit enter, then:
+export TMDB_API_KEY=<your API key>
+^D
+
+# Check that your environmental variable saved
+cat .env
+
+# Source your .env file
+source .env
 
 # Install dependencies
 yarn (or npm install)
@@ -30,6 +44,9 @@ cd server
 
 # Install client dependencies
 yarn (or npm install)
+
+# Install additional dependencies
+yarn (or npm install) errorhandler express cors axios morgan dotenv
 
 # Go inside client directory
 cd ../client
