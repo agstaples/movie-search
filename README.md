@@ -66,14 +66,14 @@ The project is split into a client and a server directory. All the frontend code
 
 ### Frameworks and Libraries
 
-[Babel](https://babeljs.io/)
-[Webpack](https://webpack.js.org/)
-[Nodemon](https://nodemon.io/)
-[Express](https://expressjs.com/)
-[Concurrently](https://github.com/kimmobrunfeldt/concurrently)
-[Prettier](https://prettier.io/)
-[Lodash](https://lodash.com/docs/)
-[Axios](https://github.com/axios/axios)
+- [Babel](https://babeljs.io/)
+- [Webpack](https://webpack.js.org/)
+- [Nodemon](https://nodemon.io/)
+- [Express](https://expressjs.com/)
+- [Concurrently](https://github.com/kimmobrunfeldt/concurrently)
+- [Prettier](https://prettier.io/)
+- [Lodash](https://lodash.com/docs/)
+- [Axios](https://github.com/axios/axios)
 
 ### Basic Functionality
 
