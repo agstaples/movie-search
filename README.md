@@ -25,10 +25,8 @@ git clone https://github.com/agstaples/movie-search
 cd movie-search
 
 # Create and populate .env file with TMDB API key
-cat > .env
-# Then hit enter, then:
-export TMDB_API_KEY=<your API key>
-^D
+touch .env
+echo "export TMDB_API_KEY=<your API key>" >> .env
 
 # Check that your environmental variable saved
 cat .env
@@ -36,20 +34,8 @@ cat .env
 # Source your .env file
 source .env
 
-# Install dependencies
-yarn (or npm install)
-
 # Go inside server directory
-cd server
-
-# Install client dependencies
-yarn (or npm install)
-
-# Install additional dependencies
-yarn (or npm install) errorhandler express cors axios morgan dotenv
-
-# Go inside client directory
-cd ../client
+cd client
 
 # Install dependencies
 yarn (or npm install)
